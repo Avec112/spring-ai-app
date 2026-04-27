@@ -1,4 +1,4 @@
-package com.github.avec112.report;
+package com.github.avec112.report.rag.ingest;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
