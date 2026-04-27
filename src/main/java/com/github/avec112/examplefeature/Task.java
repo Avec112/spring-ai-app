@@ -13,7 +13,7 @@ public class Task {
     public static final int DESCRIPTION_MAX_LENGTH = 300;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "task_id")
     private Long id;
 

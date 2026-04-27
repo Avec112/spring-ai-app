@@ -1,17 +1,19 @@
 CREATE SCHEMA IF NOT EXISTS spring;
 
-CREATE SEQUENCE IF NOT EXISTS spring.task_seq
-    START WITH 1
-    INCREMENT BY 50
-    MINVALUE 1
-    NO MAXVALUE
-    CACHE 1;
+CREATE EXTENSION IF NOT EXISTS vector;
 
+-- TASK
 CREATE TABLE IF NOT EXISTS spring.task (
-    task_id BIGINT PRIMARY KEY DEFAULT nextval('spring.task_seq'),
+    task_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     description VARCHAR(300) NOT NULL,
-    creation_date TIMESTAMP WITH TIME ZONE NOT NULL,
+    creation_date TIMESTAMPTZ NOT NULL,
     due_date DATE
 );
 
-ALTER SEQUENCE spring.task_seq OWNED BY spring.task.task_id;
+-- REPORT
+CREATE TABLE IF NOT EXISTS spring.report (
+     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+     office_id VARCHAR(50) NOT NULL,
+     title VARCHAR(255) NOT NULL,
+     body TEXT NOT NULL
+);
