@@ -1,5 +1,6 @@
-package com.github.avec112.report;
+package com.github.avec112.report.rag.ingest;
 
+import org.jspecify.annotations.NonNull;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -13,7 +14,7 @@ public class StartupRunner implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) {
+    public void run(String @NonNull ... args) {
         ingestion.ingestReports();
     }
 }

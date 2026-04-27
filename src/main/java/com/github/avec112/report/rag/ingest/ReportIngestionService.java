@@ -1,5 +1,6 @@
-package com.github.avec112.report;
+package com.github.avec112.report.rag.ingest;
 
+import com.github.avec112.report.ReportRepository;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.transformer.splitter.TokenTextSplitter;
 import org.springframework.ai.vectorstore.VectorStore;
@@ -30,7 +31,7 @@ public class ReportIngestionService {
                 ))
                 .toList();
 
-        TokenTextSplitter splitter = new TokenTextSplitter();
+        TokenTextSplitter splitter = TokenTextSplitter.builder().build();
         List<Document> chunks = splitter.apply(docs);
 
         vectorStore.add(chunks);
